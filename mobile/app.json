@@ -1,0 +1,34 @@
+{
+  "expo": {
+    "name": "TimeGate",
+    "slug": "timegate-mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#1971c2"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "QR kodlarni skanerlash uchun kamera kerak.",
+        "NSFaceIDUsageDescription": "Ilovani biometrik usulda ochish uchun."
+      }
+    },
+    "android": {
+      "permissions": ["CAMERA", "USE_BIOMETRIC", "USE_FINGERPRINT"]
+    },
+    "plugins": [
+      [
+        "expo-camera",
+        { "cameraPermission": "QR kodlarni skanerlash uchun kamera kerak." }
+      ],
+      [
+        "expo-local-authentication",
+        { "faceIDPermission": "Ilovani biometrik usulda ochish uchun." }
+      ]
+    ]
+  }
+}

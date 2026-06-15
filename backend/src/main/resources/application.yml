@@ -1,0 +1,43 @@
+server:
+  port: ${SERVER_PORT:8088}
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: timegate-backend
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/timegate}
+    username: ${DB_USER:timegate}
+    password: ${DB_PASSWORD:timegate}
+  jpa:
+    hibernate:
+      ddl-auto: none          # schema is owned by Flyway
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: false
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+
+# Application-specific config
+app:
+  jwt:
+    secret: ${JWT_SECRET:change-me-please-this-is-a-dev-only-secret-key-256bits-min}
+    access-ttl-seconds: 3600
+    refresh-ttl-seconds: 1209600   # 14 days
+  cors:
+    allowed-origins: ${CORS_ORIGINS:http://localhost:5173}
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api-docs
+
+logging:
+  level:
+    org.springframework.security: INFO
+    org.hibernate.SQL: INFO

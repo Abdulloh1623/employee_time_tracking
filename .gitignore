@@ -1,0 +1,30 @@
+# ---- Java / Maven ----
+backend/target/
+*.class
+
+# ---- Node / Vite ----
+web/node_modules/
+web/dist/
+mobile/node_modules/
+.npm/
+*.tsbuildinfo
+
+# ---- IDE ----
+.idea/
+*.iml
+.vscode/
+.project
+.classpath
+.settings/
+
+# ---- OS ----
+.DS_Store
+Thumbs.db
+
+# ---- Env / secrets ----
+.env
+.env.local
+*.local
+
+# ---- Logs ----
+*.log
